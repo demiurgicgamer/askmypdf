@@ -1,0 +1,28 @@
+# Environments
+.venv*/
+venv/
+env/
+ENV/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables
+.env
+
+# Temporary files created by the app
+temp.pdf
+
+# Vector database storage
+chroma_db/
+*.sqlite3
+*.db
+
+# Streamlit specifics (secrets, etc)
+.streamlit/secrets.toml
+
+# OS generated files
+.DS_Store
+Thumbs.db
