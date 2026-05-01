@@ -1,3 +1,13 @@
+---
+title: AskMyPDF
+emoji: 📚
+colorFrom: blue
+colorTo: indigo
+sdk: streamlit
+app_file: app.py
+pinned: false
+---
+
 # AskMyPDF - Intelligent Document Assistant
 
 AskMyPDF is an intelligent, conversational web application that allows users to upload PDF documents and interact with them through a Q&A interface. Built with Streamlit, LangChain, and powered by Groq's fast LLM inference, it enables seamless extraction and analysis of information from large PDF files.
