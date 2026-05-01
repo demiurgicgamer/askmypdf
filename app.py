@@ -12,7 +12,7 @@ from langchain_groq import ChatGroq
 load_dotenv()
 
 st.title("AskMyPDF")
-st.caption("Upload your PDF and ask any questions from it.")
+st.caption("Upload a PDF and ask any questions about it.")
 
 with st.sidebar:
     st.header("⚙️ Configuration")
