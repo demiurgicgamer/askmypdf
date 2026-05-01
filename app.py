@@ -14,9 +14,19 @@ load_dotenv()
 st.title("AskMyPDF")
 st.caption("Upload your PDF and ask any questions from it.")
 
+with st.sidebar:
+    st.header("⚙️ Configuration")
+    groq_api_key = st.text_input("Groq API Key", type="password", help="Get your API key from https://console.groq.com/keys")
+    if not groq_api_key:
+        st.warning("⚠️ Please enter your Groq API Key to proceed.")
+
 uploaded_file = st.file_uploader("Upload PDF", type="pdf")
 
 if uploaded_file:
+    if not groq_api_key:
+        st.info("Please add your Groq API key in the sidebar to continue.")
+        st.stop()
+
     # Check if we need to process the uploaded file
     if "current_file" not in st.session_state or st.session_state.current_file != uploaded_file.name:
         with st.status("Processing Document...", expanded=True) as status:
@@ -46,7 +56,8 @@ if uploaded_file:
 
             llm = ChatGroq(
                 model="llama-3.3-70b-versatile",
-                temperature=0
+                temperature=0,
+                api_key=groq_api_key
             )
 
             qa = RetrievalQA.from_chain_type(
